@@ -1,0 +1,21 @@
+.23456789012345678901234567890123456
+.
+         start   1000
+bgn      ldx     0
+         lda     0
+         ldt     1
+         +LDX    str,x
+loop     base    indev
+         jeq     loop
+         rd      indev
+         sub     48
+         compr   x,t
+l1       jeq     exit
+         mul     10
+         rmo      a,s
+         addr    t,x
+         j       loop
+exit     addr    s,a
+         j       *
+.
+         byte    z'F'
